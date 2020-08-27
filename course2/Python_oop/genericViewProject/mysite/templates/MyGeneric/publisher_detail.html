@@ -1,0 +1,22 @@
+<html>
+
+    <body>
+        <h2>Publisher : {{object.name}}</h2>
+        <ul>
+            
+            <li>Address :  {{object.address}} </li>
+            <li>City :  {{object.city}} </li>
+            <li>State : {{object.state}}  </li>
+            <li>Country : {{object.country}} </li>
+            <li>Website : {{object.website}} </li>
+            <hr>
+            <ul>
+                Book List
+                {% for item in book_list %}
+                <li>{{item}}</li>
+                {% endfor %}
+            </ul>
+        </ul>
+    </body>
+
+</html>
