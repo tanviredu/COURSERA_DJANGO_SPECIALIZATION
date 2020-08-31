@@ -9,7 +9,7 @@ def cookie(request):
     ## in the browser
 
     print("[+] the cookies are : ")
-    print(request.COOKIES);
+    print(request.COOKIES)
     #return HttpResponse(request.COOKIES)
     #fetching the cookie
     # if there give it otherwise set None
@@ -39,3 +39,15 @@ def sessfun(request):
     if num_visit >= 4:
         del(request.session['num_visit'])
     return HttpResponse('view_count = '+str(num_visit))
+
+
+
+def owner(request):
+    return HttpResponse("Hello, world, de01d76e is the polls index")
+
+def hello(request):
+    num_visit = request.session.get('num_visit',0)+1
+    request.session['num_visit'] = num_visit
+    if num_visit >=4:
+        del(request.session['num_visit'])
+    return HttpResponse("view count="+str(num_visit))
