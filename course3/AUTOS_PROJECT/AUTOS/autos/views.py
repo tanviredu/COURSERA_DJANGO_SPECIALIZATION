@@ -64,6 +64,8 @@ class MakeUpdate(LoginRequiredMixin, View):
     ## we need get post both with form 
     ## and we need Model too
     ## we need the form and the model
+
+
     model = Make
     success_url = reverse_lazy('autos:all')
     template  = "autos/make_form"  ## same form for creating make
@@ -71,6 +73,7 @@ class MakeUpdate(LoginRequiredMixin, View):
     def get(self,request,pk):
         ## get the make object
         ## from the model
+        ## so we can know which instance we need to update
         make = get_object_or_404(self.model,pk)
         form = MakeForm(instance=make)
         ctx = {'form':form}
@@ -87,6 +90,7 @@ class MakeUpdate(LoginRequiredMixin, View):
 
         make = get_object_or_404(Make,pk=pk)
         ## you need to show which model instance you need to edit
+        ## with the edit information
         form = MakeForm(request.POST,instance=make)
         if not form.is_valid():
             ctx = {'form':form}
