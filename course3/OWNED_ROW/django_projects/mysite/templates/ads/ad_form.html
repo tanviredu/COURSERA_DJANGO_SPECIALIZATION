@@ -1,0 +1,14 @@
+{% extends 'base_bootstrap.html' %}
+
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+<input type="submit" class="btn btn-primary" value="Submit">
+<a href="/ads" class="btn btn-secondary">Cancel</a>
+
+</form>
+
+{% endblock %}

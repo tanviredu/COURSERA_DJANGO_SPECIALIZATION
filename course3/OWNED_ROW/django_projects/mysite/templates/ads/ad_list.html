@@ -1,0 +1,38 @@
+{% extends 'base_bootstrap.html' %}
+
+
+{% block content %}
+
+
+<h1>Ads 1.0</h1>
+<p>
+
+<ul>
+    {% for add in ads %}
+        {% if add.owner == user %}
+    <li>
+        
+       
+        <a href="{% url 'ads:ad_detail' add.id %}">{{add}}</a>
+        <a href="{% url 'ads:ad_update' add.id %}"> Edit </a>|
+        <a href="{% url 'ads:ad_delete' add.id %}"> Delete</a>
+
+        
+    </li>
+    {% else %}
+    <li>
+        
+            <a href="{% url 'ads:ad_detail' add.id %}">{{add}}<a/>
+
+            </li>
+        {% endif %}
+    {% endfor %}
+  
+    
+
+  
+</ul>
+
+</p>
+
+{% endblock %}
